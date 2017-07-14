@@ -9,5 +9,5 @@ Test simplest expression
 --EXPECT--
 
 function($x) {
-    return $x;
+    return $x ;
 }
