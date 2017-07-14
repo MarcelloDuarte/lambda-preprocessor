@@ -1,0 +1,22 @@
+{
+    "type": "pre-macro",
+    "name": "md/lambda-preprocessor",
+    "license": "MIT",
+    "require": {
+        "yay/yay": "^0.2",
+        "pre/plugin": "^0.7.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Md\\LambdaPre\\": "tests"
+        }
+    },
+    "extra": {
+        "macros": [
+            "src/macros.yay"
+        ]
+    }
+}

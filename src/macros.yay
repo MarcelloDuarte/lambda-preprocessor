@@ -1,0 +1,26 @@
+<?php
+
+macro {
+    (
+    ·ls(
+        ·chain(
+            ·optional(·ns()·type),
+            ·token(T_VARIABLE)·varName
+        ),
+        ·token(','))·vars
+    )
+
+    ·optional(·chain(·token(':'),·ns()))·return_type
+
+    ·operator('==>')
+
+    {···body}
+
+    ·_()·oneliner
+} >> function($ast) {
+
+} >> {
+function(·vars ···(, ){·type ?·{·type }·varName}) ·return_type{
+    return ···body;
+}
+}
