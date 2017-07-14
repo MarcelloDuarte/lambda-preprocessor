@@ -29,7 +29,7 @@ macro {
         $ast->append($oneliner);
     }
 } >> {
-function(·vars ···(, ){·type ?·{·type }·varName}) ·return_type{
+function(·vars ···(, ){·type ?·{·type }·varName})·return_type {
     ·oneliner ?·{return }···body ·oneliner?·{;}
 }
 }
