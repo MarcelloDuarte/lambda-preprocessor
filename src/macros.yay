@@ -1,6 +1,34 @@
 <?php
 
-macro {
+macro ·recursion {
+    ·token(T_VARIABLE)·varName
+
+    ·operator('==>')
+
+    {···body}
+
+    ·_()·oneliner
+} >> function($ast) {
+    $oneliner = new \Yay\Ast('·oneliner');
+
+    $newLines = array_filter($ast->unwrap()['···body'], function(\Yay\Token $token) {
+        return $token->name() == 'T_WHITESPACE' && $token->value() == "\n";
+    });
+
+    if (count($newLines) == 0) {
+        $oneliner->push(new \Yay\Ast("·oneliner"));
+        $ast->append($oneliner);
+    }
+} >> {
+(function($context) {
+    return function(·varName) use ($context) {
+        extract($context);
+        ·oneliner ?·{return }···body ·oneliner?·{;}
+    };
+})(get_defined_vars())
+}
+
+macro ·recursion {
     (
     ·ls(
         ·chain(
