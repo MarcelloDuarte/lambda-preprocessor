@@ -5,7 +5,7 @@ In [Hacklang](https://docs.hhvm.com/hack/lambdas/introduction), a lambda express
 
 This pre-processor is meant to make that syntax available in native PHP applications. This does not happen at runtime, so there is no hit on perfomance. The pre-processor works on top of the [pre](https://github.com/preprocess/pre-plugin) plugin and the [yay macro library](https://github.com/marcioAlmada/yay).
 
-Syntax wise, and due to the fact that Yay does not have an expresison parser yet, even though Hack supports a single expression to be written without the need of curly brakets, this pre-processor will always require the curly brakets to be written. Hopefully this will change once we Yay develops further.
+Syntax wise, and due to the fact that Yay does not have an expresison parser yet, even though Hack supports a single expression to be written without the need of curly brakets, this pre-processor will always require the curly brakets to be written. Hopefully this will change once Yay develops further.
 
 Oneliner anonymous function
 ---------------------------
@@ -94,13 +94,13 @@ Recursive calls and precedence
 The pre-processor will translate the inner block and then the outer. The precedence with this syntax is a bit more obvious than the hack one. In hack you can ommit the brakets `{`, `}`. Here, it should be straightforward that the expression:
 
 ```php
-$lambda = $x ==> { $y ==> { $x + $y } };
+$lambda = $x ==> { $y ==> { $x + $y }; };
 ```
 
 will be translated into:
 
 ```php
-$lambda = function($x){ return function($y){ return $x + $y; }; };
+$lambda = function($x) { return function($y) { return $x + $y; }; };
 ```
 
 Final Notes
