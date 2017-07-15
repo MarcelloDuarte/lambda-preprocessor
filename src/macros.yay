@@ -29,7 +29,10 @@ macro {
         $ast->append($oneliner);
     }
 } >> {
-function(·vars ···(, ){·type ?·{·type }·varName})·return_type {
-    ·oneliner ?·{return }···body ·oneliner?·{;}
-}
+(function($context) {
+    return function(·vars ···(, ){·type ?·{·type }·varName}) use ($context)·return_type {
+        extract($context);
+        ·oneliner ?·{return }···body ·oneliner?·{;}
+    };
+})(get_defined_vars())
 }

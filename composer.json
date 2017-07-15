@@ -18,5 +18,8 @@
         "macros": [
             "src/macros.yay"
         ]
+    },
+    "scripts": {
+        "test:specs": "phpunit tests/SpecTest.php"
     }
 }
