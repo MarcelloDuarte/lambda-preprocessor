@@ -1,16 +1,16 @@
 --DESCRIPTION--
 
-Test simplest operations
+Test default value: null, one argument
 
 --GIVEN--
 
-($x) ==> {$x + 1}
+($x = null) ==> {$x}
 
 --EXPECT--
 
 (function($context·cfcd208495d565ef66e7dff9f98764da) {
-    return function($x ) use ($context·cfcd208495d565ef66e7dff9f98764da) {
+    return function($x =null) use ($context·cfcd208495d565ef66e7dff9f98764da) {
         extract($context·cfcd208495d565ef66e7dff9f98764da);
-        return $x + 1 ;
+        return $x ;
     };
 })(get_defined_vars())

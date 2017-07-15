@@ -5,7 +5,8 @@ macro {
     ·ls(
         ·chain(
             ·optional(·ns()·type),
-            ·token(T_VARIABLE)·varName
+            ·token(T_VARIABLE)·varName,
+            ·optional(·chain(·token('='), ·either(·rtoken("/array\([.*]\)/"),·rtoken("/^[^\)]+/"))))·defaultValue
         ),
         ·token(','))·vars
     )
@@ -30,7 +31,7 @@ macro {
     }
 } >> {
 (function($context) {
-    return function(·vars ···(, ){·type ?·{·type }·varName}) use ($context)·return_type {
+    return function(·vars ···(, ){·type ?·{·type }·varName ·defaultValue?·{·defaultValue}}) use ($context)·return_type {
         extract($context);
         ·oneliner ?·{return }···body ·oneliner?·{;}
     };
